@@ -1,0 +1,62 @@
+//python code to build simple authentication system
+class forms:
+    def __init__(self):
+        self.user={}
+    def register(self):
+        user=input("name:")
+        roll_no=input("roll_no:")
+        email_id=input("email_id:")
+        password=input("password:")
+        if user in self.user:
+            print("the user alredy exists")
+        else:
+             self.user[user] = {'name': user,
+                                'roll_no': roll_no,
+                                'email_id': email_id,
+                                'password': password}
+             print("Registration Successfull!!!")
+    def login(self):
+        user=input("name:")
+        password=input("password:")
+        if user in self.user and self.user[user]['password']==password:
+            print("Login Successfull!!!")
+        elif user not in self.user:
+            print("enter the correct username")
+        else:
+            print("Enter the correct valid password")
+
+    def display(self):
+        user=input("name:")
+        
+        if user in self.user:
+            print("name: ",self.user[user]['name'])
+            print("roll_no: ",self.user[user]['roll_no'])
+            print("email_id: ",self.user[user]['email_id'])
+            
+        else:
+            print("user not found")
+    def logout(self):
+        user=input("name:")
+        if user in self.user:
+            print("Logout successfull!!!")
+        else:
+            print("user not found")
+obj=forms()
+while True:
+    print("1:Register")
+    print("2:Login")
+    print("3:Display profile")
+    print("4:Logout the session")
+    select=int(input("enter the no 1 to 4: "))
+    if select==1:
+        obj.register()
+    elif select==2:
+        obj.login()
+    elif select==3:
+        obj.display()
+    elif select==4:
+        obj.logout()
+    else:
+        print("enter the correct number") 
+                
+            
